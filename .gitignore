@@ -1,104 +1,16 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+import requests
 
-# C extensions
-*.so
+url = "https://surveyfirmifmr.surveycto.com/api/v1/forms/data/wide/json/Try_Sachin"
 
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+querystring = {"api_key":"TQB8S1xOuDWtBFL8hxtMsGW5W2bqAJNw"}
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
+headers = {
+    'api_key': "TQB8S1xOuDWtBFL8hxtMsGW5W2bqAJNw",
+    'Authorization': "Digest username=\"sachin.shrivastava@ifmr.ac.in\", realm=\"surveyfirmifmr.surveycto.com\", nonce=\"MTUyOTU3NTM2ODA5MDphZWI0NjNhNWJlMmVhY2JhYzA3ZGZkYWNlM2Y2ZGE0OA==\", uri=\"/api/v1/forms/data/wide/json/Try_Sachin?api_key=TQB8S1xOuDWtBFL8hxtMsGW5W2bqAJNw\", algorithm=\"MD5\", qop=auth, nc=00000001, cnonce=\"oLrpoUFn\", response=\"d14dd95b40353c9e5d95aa0fb25bd415\"",
+    'Cache-Control': "no-cache",
+    'Postman-Token': "c3527fc5-a7cd-47b5-a81d-073330dbf2a2"
+    }
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+response = requests.request("GET", url, headers=headers, params=querystring)
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-.hypothesis/
-.pytest_cache/
-
-# Translations
-*.mo
-*.pot
-
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-
-# Flask stuff:
-instance/
-.webassets-cache
-
-# Scrapy stuff:
-.scrapy
-
-# Sphinx documentation
-docs/_build/
-
-# PyBuilder
-target/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# pyenv
-.python-version
-
-# celery beat schedule file
-celerybeat-schedule
-
-# SageMath parsed files
-*.sage.py
-
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# Spyder project settings
-.spyderproject
-.spyproject
-
-# Rope project settings
-.ropeproject
-
-# mkdocs documentation
-/site
-
-# mypy
-.mypy_cache/
+print(response.text)
